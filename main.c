@@ -31,17 +31,36 @@
     THIS SOFTWARE.
 */
 #include "mcc_generated_files/system/system.h"
+#include "unity.h"
+#include <util/delay.h>
 
 /*
     Main application
 */
 
+/* Add the code snippet to the application code, e.g. main.c */
+void setUp(void){};
+void tearDown(void){};
+
+void test_Pass(void)
+{
+    TEST_ASSERT_TRUE(1);
+}
+
+void test_Fail(void)
+{
+    TEST_ASSERT_FALSE(0);
+}
+
+
 int main(void)
 {
     SYSTEM_Initialize();
-    printf("Hello World!/r/n");
-
+    UNITY_BEGIN();
+    RUN_TEST(test_Pass);
+    RUN_TEST(test_Fail);
+    UNITY_END();
     while(1)
     {
-    }    
+    }   
 }

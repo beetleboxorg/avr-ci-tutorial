@@ -69,6 +69,9 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>unity.c</itemPath>
+      <itemPath>unity.h</itemPath>
+      <itemPath>unity_internals.h</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
