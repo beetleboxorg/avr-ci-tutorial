@@ -39,7 +39,7 @@
 int main(void)
 {
     SYSTEM_Initialize();
-
+    printf("Hello World!/r/n");
 
     while(1)
     {
