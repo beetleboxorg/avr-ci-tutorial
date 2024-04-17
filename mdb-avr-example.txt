@@ -1,0 +1,12 @@
+Device AVR64EA48
+set communication.interface updi
+
+Hwtool
+hwtool pkobnano
+
+Program "./dist/default/production/AVRCIExample.X.production.elf"
+Reset
+run 
+wait 3000
+halt
+quit
