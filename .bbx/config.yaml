@@ -11,6 +11,11 @@ jobs:
  avr-compile-program-close:
   # Specify the runner used to perform this job
   runner: ubuntu-runner
+  privileged: True
+  volumes:
+   - mount:
+      name: volume1
+      path: /opt/microchip
   steps:
     - run:
         name: Setup Environment
