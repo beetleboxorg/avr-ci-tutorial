@@ -1,0 +1,30 @@
+# Example config file to use as a starting point.
+# Please visit https://docs.beetleboxci.com/docs/config/configuration-yaml for guidance on setting up your configuration file.
+
+# Define a runner that will be used to run a job
+runners:
+ ubuntu-runner:
+  image: public.ecr.aws/y2s4f3y9/ubuntu-generic:latest
+
+# Define a job to be performed during a workflow
+jobs:   
+ avr-compile-program-close:
+  # Specify the runner used to perform this job
+  runner: ubuntu-runner
+  steps:
+    - run:
+        name: Setup Environment
+        command: |
+          apt-get -y update
+          apt-get install make
+    - run:
+        name: Compile AVR chip
+        command: |
+          export PATH=$PATH:/opt/microchip/mplabx/v6.20/mplab_platform/bin
+          make
+
+# Define a workflow to orchestrate a job
+workflows:
+ avr-workflow:
+  jobs:
+   - avr-compile-program-close
