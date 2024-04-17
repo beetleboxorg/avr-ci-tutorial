@@ -23,6 +23,7 @@ jobs:
         command: |
           apt-get -y update
           apt-get install make
+          apt-get install libusb-1.0-0
     - run:
         name: Compile AVR chip
         command: |
