@@ -12,6 +12,7 @@ jobs:
   # Specify the runner used to perform this job
   runner: ubuntu-runner
   privileged: True
+  device: AVR-microcontroller-1
   volumes:
    - mount:
       name: volume1
@@ -27,6 +28,11 @@ jobs:
         command: |
           export PATH=$PATH:/opt/microchip/mplabx/v6.20/mplab_platform/bin
           make
+    - run:
+        name: Program AVR board
+        command: |
+          mdb='/opt/microchip/mplabx/v6.20/mplab_platform/bin/mdb.sh'
+          $mdb mdb-avr-example.txt
 
 # Define a workflow to orchestrate a job
 workflows:
