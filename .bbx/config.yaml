@@ -35,10 +35,15 @@ jobs:
     - run:
         name: Program AVR board
         command: |
-          python3 ./MonitorOutput.py &
+          python3 ./MonitorOutput.py > AVROutput.txt &
           mdb='/opt/microchip/mplabx/v6.20/mplab_platform/bin/mdb.sh'
           $mdb mdb-avr-example.txt
           wait $(jobs -p)
+    - run:
+        name: Parse Output Files
+        command: |
+          cat AVROutput.txt
+          python3 ./ParseOutput.py AVROutput.txt
 
 # Define a workflow to orchestrate a job
 workflows:
