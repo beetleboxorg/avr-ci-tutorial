@@ -11,7 +11,7 @@ def connect_to_device(port, baudrate=9600, timeout=1):
         return None
 
 def main(runtime):
-    port = '/dev/ttyACM2'  # Change this to the appropriate port of your USB device
+    port = '<usb_port_of_avr_microcontroller>'  # Change this to the appropriate port of your USB device eg /dev/ttyACM0
     start_time = time.time()
     while time.time() - start_time < runtime:
         ser = connect_to_device(port)
