@@ -30,13 +30,13 @@ jobs:
     - run:
         name: Compile AVR chip
         command: |
-          export PATH=$PATH:<your_mplabx_installation_directory>/mplabx/v6.20/mplab_platform/bin
+          export PATH=$PATH:<your_mplabx_installation_directory>/mplabx/<your_mplabx_version_number>/mplab_platform/bin
           make
     - run:
         name: Program AVR board
         command: |
           python3 ./MonitorOutput.py &
-          mdb='<your_mplabx_installation_directory>/mplabx/v6.20/mplab_platform/bin/mdb.sh'
+          mdb='<your_mplabx_installation_directory>/mplabx/<your_mplabx_version_number>/mplab_platform/bin/mdb.sh'
           $mdb mdb-avr-example.txt
           wait $(jobs -p)
 
