@@ -15,7 +15,7 @@ jobs:
   volumes:
    - mount:
       name: volume1
-      path: /opt/microchip
+      path: <your_mplabx_installation_directory>
   steps:
     - run:
         name: Setup Environment
@@ -25,7 +25,7 @@ jobs:
     - run:
         name: Compile AVR chip
         command: |
-          export PATH=$PATH:/opt/microchip/mplabx/<your_mplabx_version_number>/mplab_platform/bin
+          export PATH=$PATH:<your_mplabx_installation_directory>/mplabx/<your_mplabx_version_number>/mplab_platform/bin
           make
 
 # Define a workflow to orchestrate a job
