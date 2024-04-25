@@ -25,7 +25,7 @@ jobs:
     - run:
         name: Compile AVR chip
         command: |
-          export PATH=$PATH:/opt/microchip/mplabx/v6.20/mplab_platform/bin
+          export PATH=$PATH:/opt/microchip/mplabx/<your_mplabx_version_number>/mplab_platform/bin
           make
 
 # Define a workflow to orchestrate a job
